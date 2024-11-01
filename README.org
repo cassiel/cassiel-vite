@@ -1,0 +1,11 @@
+-*- mode: org; mode: visual-line; -*-
+#+STARTUP: indent
+
+* cassiel-vite
+** [2024-11-01 Fri]
+
+- Research: [[https://blog.logrocket.com/build-blog-astro-vite-mdx/][LogRocket]] - Oriented towards Astro
+- Set up, stick with JS (not TS), don't initialise git repository
+- VS Code: official [[https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode][Astro]] extension
+- Added MDX support: =npx astro add mdx=
+- TODO: look at adding [[https://docs.astro.build/en/guides/rss/][RSS]]
