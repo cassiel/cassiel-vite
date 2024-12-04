@@ -2,6 +2,11 @@
 #+STARTUP: indent
 
 * cassiel-vite
+** [2024-12-04 Wed]
+
+- Tried setting up a new project, didn't get asked about TS this time
+- Enable "strictest" in ~tsconfig.json~
+
 ** [2024-11-01 Fri]
 
 - Research: [[https://blog.logrocket.com/build-blog-astro-vite-mdx/][LogRocket]] - Oriented towards Astro
