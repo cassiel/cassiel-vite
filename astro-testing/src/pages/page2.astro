@@ -3,11 +3,12 @@ import { getCollection /*, getEntry*/ } from 'astro:content';
 const posts = await getCollection('blog');
 
 interface Post {
-    data: { title: string }
+    data: { title: string },
+    id: string
 }
 ---
 
 <h1>TEST</h1>
 <ul>
-    {posts.map((post: Post) => <li>{post.data.title}</li>)}
+    {posts.map((post: Post) => <li><a href={ `/${post.id}` }>{post.data.title}</a>({post.id})</li>)}
 </ul>
