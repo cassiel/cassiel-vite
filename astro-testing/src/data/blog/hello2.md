@@ -1,6 +1,7 @@
 ---
-title: My First Blog
+title: My Second Blog
 author: Nick
 ---
 Hello.
 Hello 2.
+
