@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+    const entries = await getCollection('blog')
+    /** params is probably essential because Astro has to enumerate
+        the generated routes. Am not sure about props - but it
+        can't be an arbitrary label. */
+    return entries.map((e: any) => ({ params: { id: e.id },
+                                      props: { entry: e }}))
+}
+
+const { id } = Astro.params
+const { entry } = Astro.props
+const { Content, headings } = await render(entry)
+---
+<pre>{ JSON.stringify(headings) }</pre>
+<Content />

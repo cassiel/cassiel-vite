@@ -1,0 +1,9 @@
+---
+// Test: a small fixed collection of routes by ID.
+export function getStaticPaths() {
+    return ["A", "B", "C"].map(id => { return {params: {id: id}} })
+}
+
+const { id } = Astro.params
+---
+<h1>Hello Astro world, my ID is {id}</h1>

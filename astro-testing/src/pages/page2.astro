@@ -1,6 +1,6 @@
 ---
-import { getCollection /*, getEntry*/ } from 'astro:content';
-const posts = await getCollection('blog');
+import { getCollection /*, getEntry*/ } from 'astro:content'
+const posts = await getCollection('blog')
 
 interface Post {
     data: { title: string },
@@ -10,5 +10,6 @@ interface Post {
 
 <h1>TEST</h1>
 <ul>
-    {posts.map((post: Post) => <li><a href={ `/${post.id}` }>{post.data.title}</a>({post.id})</li>)}
+    {posts.map((post: Post) => <li><a href={ `/post-${post.id}` }>{post.data.title}</a>
+        (id=<code>{post.id}</code>)</li>)}
 </ul>

@@ -2,6 +2,7 @@
 title: My Second Blog
 author: Nick
 ---
-Hello.
-Hello 2.
+# Hello.
+
+Hello 2x.
 
