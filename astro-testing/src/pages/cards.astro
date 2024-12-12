@@ -1,0 +1,16 @@
+---
+import { getCollection /*, getEntry*/ } from 'astro:content'
+const cards = await getCollection('cards')
+
+interface Cardxxxx {
+    data: { title: string, author: string },
+    id: string
+}
+---
+
+<h1>CARDS</h1>
+<ul>
+    {cards.map((card: any) =>
+        <li><code>{JSON.stringify(card)} {card.body}</code></li>)
+    }
+</ul>

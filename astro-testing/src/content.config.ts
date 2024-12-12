@@ -15,5 +15,14 @@ const blog = defineCollection({
     })
 })
 
-// 4. Export a single `collections` object to register your collection(s)
-export const collections = { blog }
+// Let's try a collection which ends up on a single page. (We'll see what
+// actually comes in as the body, if we don't use a dynamic page template.)
+const cards = defineCollection({
+    loader: glob({ pattern: "*.md", base: "./src/data/cards" }),
+    schema: z.object({
+        title: z.string(),
+        author: z.string()
+    })
+})
+
+export const collections = { blog, cards }
