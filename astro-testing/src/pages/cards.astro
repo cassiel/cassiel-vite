@@ -1,16 +1,21 @@
 ---
 import { getCollection /*, getEntry*/ } from 'astro:content'
+import type { CollectionEntry  } from 'astro:content'
+type Card = CollectionEntry<'cards'>
+
 const cards = await getCollection('cards')
 
-interface Cardxxxx {
-    data: { title: string, author: string },
-    id: string
-}
+// @ts-ignore
+import { render } from 'astro:content'
 ---
 
 <h1>CARDS</h1>
-<ul>
-    {cards.map((card: any) =>
-        <li><code>{JSON.stringify(card)} {card.body}</code></li>)
-    }
-</ul>
+<div>
+    {cards.map(async (card: Card) => {
+        const { Content } = await render(card)
+        return  <>
+            <p><code>{JSON.stringify(card)} {card.data.title}</code></p>
+            <Content />
+        </>
+    })}
+</div>
