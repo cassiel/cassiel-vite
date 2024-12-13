@@ -1,5 +1,5 @@
 ---
-import { getCollection /*, getEntry*/ } from 'astro:content'
+import { getCollection } from 'astro:content'
 import type { CollectionEntry  } from 'astro:content'
 type Card = CollectionEntry<'cards'>
 
@@ -7,9 +7,12 @@ const cards = await getCollection('cards')
 
 // @ts-ignore
 import { render } from 'astro:content'
+
+import MyCardFromID from '../components/MyCardFromID.astro';
 ---
 
-<h1>CARDS</h1>
+<h1>All Cards</h1>
+
 <div>
     {cards.map(async (card: Card) => {
         const { Content } = await render(card)
@@ -19,3 +22,8 @@ import { render } from 'astro:content'
         </>
     })}
 </div>
+
+<h1>A Specific Card</h1>
+<h2>Custom Component</h2>
+
+<MyCardFromID id="card1" />

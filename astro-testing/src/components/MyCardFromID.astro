@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content'
+
+interface Props {
+    id: string
+}
+
+const { id } = Astro.props
+const card = await getEntry('cards', id)        //  Can be undefined.
+
+import { render } from 'astro:content'
+
+---
+{
+    // Contrived wrapper to deal with optional return:
+    (async () => {
+        if (card) {
+            const { Content } = await render(card)
+            return <>
+                <div>(Author: {card.data.author})</div>
+                <Content />
+            </>
+        } else {
+            return <p>No card found for id <code>{id}</code></p>
+        }
+    })()
+}
